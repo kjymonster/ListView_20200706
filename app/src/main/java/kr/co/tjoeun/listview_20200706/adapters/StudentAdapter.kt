@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import kr.co.tjoeun.listview_20200706.R
 import kr.co.tjoeun.listview_20200706.datas.Student
+import java.time.Year
 
 class StudentAdapter(val mContext : Context, val resId:Int, val mList: List<Student>) : ArrayAdapter<Student>(mContext, resId, mList){
     //만들 장소 (Main에서 this)
@@ -45,8 +46,9 @@ class StudentAdapter(val mContext : Context, val resId:Int, val mList: List<Stud
         nameTxt.text = data.name
         addressTxt.text = data.address
 
-        ageTxt.text = "${data.birthYear}세"
-        
+      //  val age = 2020 - data.birthYear + 1
+       // ageTxt.text = "${age}세"
+        ageTxt.text = "${data.getKoreanAge()}세"
          //ListView에 이 row를 뿌려달라고 결과로 지정.
         return row
     }
