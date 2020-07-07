@@ -20,11 +20,13 @@ class StudentAdapter(val mContext : Context, val resId:Int, val mList: List<Stud
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         //position: == Array의 위치
         var tempRow = convertView //임시 Row로 null인지 확인, null이라면 inf로 채워준다.
+
         //받아본 임시 row가 null인가?
         if(tempRow == null){
             //만약 null 이라면, inf를 이용해서 tempRow를 채워주자.
-            tempRow = inf.inflate(R.layout.student_list_item, null) 
-             
+            tempRow = inf.inflate(R.layout.student_list_item, null)
+            //convertView(재활용에 사용할 뷰)가 null 인 경우에만 inflate가 실행됨
+            //==null이면 재활용할 재료가 부족함. 새로 inflate.
         }
         
           //tempRow에는 null일 가능성이 없다.
